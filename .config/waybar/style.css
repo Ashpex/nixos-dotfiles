@@ -1,0 +1,181 @@
+* {
+  font-family: "FiraCode Nerd Font", monospace;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: #e6d8ba;
+  transition: background-color 0.5s;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+/* General module styling - V2.7 approach */
+#clock,
+#tray,
+#idle_inhibitor,
+#workspaces,
+#mpris,
+#window,
+#network,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#custom-notification,
+#custom-power {
+  background-color: rgba(17, 28, 24, 0.85);
+  padding: 0px 8px;
+  margin: 2px 1px;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.116) 2 2, rgba(0, 0, 0, 0.239) 1 1;
+}
+
+/* Hover effects */
+#clock:hover,
+#tray:hover,
+#idle_inhibitor:hover,
+#network:hover,
+#pulseaudio:hover,
+#memory:hover,
+#cpu:hover,
+#battery:hover,
+#custom-notification:hover,
+#custom-power:hover {
+  background-color: #e6d8ba;
+  color: #111C18;
+  opacity: 0.9;
+}
+
+/* Workspaces */
+#workspaces {
+  padding: 0px;
+}
+
+#workspaces button {
+  padding: 0px 8px;
+  background-color: transparent;
+  color: #e6d8ba;
+  border-radius: 2px;
+}
+
+#workspaces button:hover {
+  background-color: #e6d8ba;
+  color: #111C18;
+}
+
+#workspaces button.active {
+  background-color: #e6d8ba;
+  color: #111C18;
+}
+
+/* MPRIS with blink animation */
+#mpris.playing {
+  animation-name: blink;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#mpris.paused {
+  opacity: 0.6;
+}
+
+/* Window title */
+#window {
+  color: #C1C497;
+}
+
+/* Individual module colors */
+#clock {
+  color: #e6d8ba;
+}
+
+#idle_inhibitor.activated {
+  color: #71CEAD;
+}
+
+#network {
+  color: #2DD5B7;
+}
+
+#network.disconnected {
+  color: #FF5345;
+}
+
+#pulseaudio {
+  color: #ACD4CF;
+}
+
+#pulseaudio.muted {
+  opacity: 0.5;
+}
+
+#memory {
+  color: #549E6A;
+}
+
+#cpu {
+  color: #71CEAD;
+}
+
+#battery {
+  color: #8CD3CB;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #63b07a;
+}
+
+#battery.warning:not(.charging) {
+  background-color: rgba(229, 199, 54, 0.85);
+  color: #111C18;
+}
+
+#battery.critical:not(.charging) {
+  background-color: rgba(255, 83, 69, 0.85);
+  color: #111C18;
+  animation: blink-critical 0.5s steps(12) infinite alternate;
+}
+
+#custom-notification {
+  color: #D7C995;
+}
+
+#custom-power {
+  color: #FF5345;
+}
+
+/* Animations */
+@keyframes blink {
+  to {
+    color: #71CEAD;
+  }
+}
+
+@keyframes blink-critical {
+  to {
+    background-color: rgba(255, 83, 69, 0.5);
+  }
+}
+
+/* Tooltip styling */
+tooltip {
+  background: rgba(17, 28, 24, 1);
+  border: 1px solid rgba(113, 206, 173, 0.3);
+  border-radius: 4px;
+  color: #e6d8ba;
+}
+
+tooltip label {
+  color: #e6d8ba;
+}
