@@ -1,7 +1,7 @@
 font=FiraCode Nerd Font 11
-background-color=#1e1e2edd
-text-color=#cdd6f4
-border-color=#89b4fa
+background-color=#111C18dd
+text-color=#e6d8ba
+border-color=#71CEAD
 border-size=2
 border-radius=8
 padding=10
@@ -11,8 +11,8 @@ max-visible=3
 layer=overlay
 
 [urgency=low]
-border-color=#a6e3a1
+border-color=#549E6A
 
 [urgency=high]
-border-color=#f38ba8
+border-color=#FF5345
 default-timeout=10000

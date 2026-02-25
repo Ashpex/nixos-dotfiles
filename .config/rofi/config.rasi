@@ -5,4 +5,4 @@ configuration {
     drun-display-format: "{name}";
 }
 
-@theme "~/.config/rofi/catppuccin-mocha"
+@theme "~/.config/rofi/osaka-jade"

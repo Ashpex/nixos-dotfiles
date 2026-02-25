@@ -5,13 +5,13 @@
 }
 
 window {
-    background-color: rgba(30, 30, 46, 0.9);
+    background-color: rgba(17, 28, 24, 0.9);
 }
 
 button {
-    color: #cdd6f4;
-    background-color: #313244;
-    border: 2px solid #45475a;
+    color: #e6d8ba;
+    background-color: #23372B;
+    border: 2px solid #53685B;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25%;
@@ -20,28 +20,28 @@ button {
 }
 
 button:focus, button:active, button:hover {
-    background-color: #45475a;
-    border-color: #a6e3a1;
-    color: #a6e3a1;
+    background-color: #53685B;
+    border-color: #71CEAD;
+    color: #71CEAD;
     outline: none;
 }
 
 #lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+    background-image: image(url("icons/lock.png"));
 }
 
 #logout {
-    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+    background-image: image(url("icons/logout.png"));
 }
 
 #suspend {
-    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+    background-image: image(url("icons/suspend.png"));
 }
 
 #reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+    background-image: image(url("icons/reboot.png"));
 }
 
 #shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+    background-image: image(url("icons/shutdown.png"));
 }
