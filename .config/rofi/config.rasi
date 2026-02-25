@@ -1,0 +1,8 @@
+configuration {
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    display-drun: "Apps";
+    drun-display-format: "{name}";
+}
+
+@theme "~/.config/rofi/catppuccin-mocha"
