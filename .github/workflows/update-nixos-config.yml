@@ -23,13 +23,16 @@ jobs:
       - name: Update dotfiles input
         run: make update-dotfiles
 
+      - name: Set short SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
       - name: Open PR
         id: pr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.NIXOS_CONFIG_PAT }}
           commit-message: "chore: update dotfiles to latest commit"
-          title: "chore: update dotfiles"
+          title: "chore: dotfiles ${{ github.event.head_commit.message }} (${{ env.SHORT_SHA }})"
           body: |
             Automated PR triggered by a new commit in [nixos-dotfiles](https://github.com/Ashpex/nixos-dotfiles).
 
