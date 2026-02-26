@@ -1,0 +1,38 @@
+name: Update nixos-config dotfiles input
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  update-dotfiles:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Checkout nixos-config
+        uses: actions/checkout@v4
+        with:
+          repository: Ashpex/nixos-config
+          token: ${{ secrets.NIXOS_CONFIG_PAT }}
+
+      - name: Update dotfiles input
+        run: make update-dotfiles
+
+      - name: Open PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.NIXOS_CONFIG_PAT }}
+          commit-message: "chore: update dotfiles to latest commit"
+          title: "chore: update dotfiles"
+          body: |
+            Automated PR triggered by a new commit in [nixos-dotfiles](https://github.com/Ashpex/nixos-dotfiles).
+
+            Updates `flake.lock` to point dotfiles input to the latest master commit.
+          branch: auto/update-dotfiles
+          base: master
+          delete-branch: true
