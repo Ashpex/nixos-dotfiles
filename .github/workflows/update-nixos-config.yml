@@ -3,6 +3,9 @@ name: Update nixos-config dotfiles input
 on:
   push:
     branches: [master]
+    paths:
+      - '.config/**'
+      - 'wallpapers/**'
 
 jobs:
   update-dotfiles:
