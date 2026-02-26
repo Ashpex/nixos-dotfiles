@@ -24,6 +24,7 @@ jobs:
         run: make update-dotfiles
 
       - name: Open PR
+        id: pr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.NIXOS_CONFIG_PAT }}
@@ -36,3 +37,9 @@ jobs:
           branch: auto/update-dotfiles
           base: master
           delete-branch: true
+
+      - name: Enable auto-merge
+        if: steps.pr.outputs.pull-request-number != ''
+        run: gh pr merge --auto --squash "${{ steps.pr.outputs.pull-request-number }}" --repo Ashpex/nixos-config
+        env:
+          GH_TOKEN: ${{ secrets.NIXOS_CONFIG_PAT }}
