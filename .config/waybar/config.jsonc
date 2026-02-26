@@ -20,19 +20,26 @@
   ],
 
   "modules-right": [
-    "cpu",
-    "memory",
-    "disk",
-    "custom/sep",
-    "network",
-    "bluetooth",
-    "custom/sep",
-    "backlight",
-    "pulseaudio",
-    "custom/sep",
-    "battery",
+    "group/stats",
+    "group/connect",
+    "group/audio",
     "tray"
   ],
+
+  "group/stats": {
+    "orientation": "inherit",
+    "modules": ["cpu", "memory", "disk"]
+  },
+
+  "group/connect": {
+    "orientation": "inherit",
+    "modules": ["network", "bluetooth"]
+  },
+
+  "group/audio": {
+    "orientation": "inherit",
+    "modules": ["backlight", "pulseaudio", "battery"]
+  },
 
   "custom/nixos": {
     "format": "󱄅",
@@ -40,10 +47,6 @@
     "tooltip": false
   },
 
-  "custom/sep": {
-    "format": "│",
-    "tooltip": false
-  },
 
   "hyprland/workspaces": {
     "on-click": "activate",
