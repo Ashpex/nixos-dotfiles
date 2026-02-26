@@ -51,7 +51,7 @@ layer-rule {
 }
 
 // Autostart
-spawn-at-startup "noctalia"
+spawn-at-startup "noctalia-shell"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 
