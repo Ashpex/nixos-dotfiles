@@ -35,7 +35,7 @@ layout {
 
 // Rounded corners
 window-rule {
-    geometry-corner-radius 20
+    geometry-corner-radius 3
     clip-to-geometry true
 }
 
@@ -50,8 +50,7 @@ layer-rule {
     place-within-backdrop true
 }
 
-// Autostart
-spawn-at-startup "noctalia-shell"
+// Autostart is handled via systemd user service (noctalia-shell.service)
 
 binds {
     // Terminal
@@ -60,8 +59,15 @@ binds {
     // Close window
     Mod+Q { close-window; }
 
-    // App launcher
-    Mod+D { spawn "rofi" "-show" "drun"; }
+    // App launcher (Noctalia built-in)
+    Mod+D      { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Tab    { spawn "noctalia-shell" "ipc" "call" "launcher" "windows"; }
+    Mod+Shift+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+
+    // Noctalia shell panels
+    Mod+N { spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
+    Mod+Ctrl+L      { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Mod+Shift+Escape { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
 
     // File manager
     Mod+E { spawn "pcmanfm"; }
@@ -118,24 +124,32 @@ binds {
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
+    // Column resize
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    // Consume/expel window between columns (merge/split)
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
     // Screenshot (built-in)
     Print       { screenshot; }
     Shift+Print { screenshot-screen; }
     Ctrl+Print  { screenshot-window; }
 
-    // Volume
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "5%+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    // Volume (via Noctalia for OSD feedback)
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute        allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
 
-    // Brightness
-    XF86MonBrightnessUp   { spawn "brightnessctl" "-e4" "-n2" "set" "5%+"; }
-    XF86MonBrightnessDown { spawn "brightnessctl" "-e4" "-n2" "set" "5%-"; }
+    // Brightness (via Noctalia for OSD feedback)
+    XF86MonBrightnessUp   { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
 
-    // Media
-    XF86AudioNext  allow-when-locked=true { spawn "playerctl" "next"; }
-    XF86AudioPrev  allow-when-locked=true { spawn "playerctl" "previous"; }
-    XF86AudioPlay  allow-when-locked=true { spawn "playerctl" "play-pause"; }
-    XF86AudioPause allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    // Media (via Noctalia)
+    XF86AudioNext  allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
+    XF86AudioPrev  allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
+    XF86AudioPlay  allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
+    XF86AudioPause allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
 }
