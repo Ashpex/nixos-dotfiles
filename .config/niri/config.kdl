@@ -33,6 +33,23 @@ layout {
     default-column-width { proportion 0.5; }
 }
 
+// Rounded corners
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+}
+
+// Allow notification actions and window activation
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+// Blurred overview wallpaper (enable overview wallpaper in Noctalia settings)
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
+}
+
 // Autostart
 spawn-at-startup "noctalia"
 spawn-at-startup "nm-applet"
