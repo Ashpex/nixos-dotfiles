@@ -24,7 +24,7 @@ window#waybar {
 
 #waybar > box {
   background-color: @bg;
-  border: none;
+  border: 1px solid @border;
   border-radius: 2px;
   margin: 0px;
   min-height: 0px;
