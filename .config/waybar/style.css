@@ -118,7 +118,6 @@ window#waybar.hidden {
 
 #cpu,
 #memory,
-#disk,
 #network,
 #bluetooth,
 #backlight,
@@ -131,7 +130,6 @@ window#waybar.hidden {
 
 #cpu:hover,
 #memory:hover,
-#disk:hover,
 #network:hover,
 #bluetooth:hover,
 #backlight:hover,
