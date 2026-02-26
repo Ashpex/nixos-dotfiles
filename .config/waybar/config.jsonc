@@ -23,7 +23,7 @@
     "group/stats",
     "group/connect",
     "group/audio",
-    "tray"
+    "group/tray"
   ],
 
   "group/stats": {
@@ -39,6 +39,20 @@
   "group/audio": {
     "orientation": "inherit",
     "modules": ["backlight", "pulseaudio", "battery"]
+  },
+
+  "group/tray": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/tray-expand", "tray"]
+  },
+
+  "custom/tray-expand": {
+    "format": "󰅁",
+    "tooltip": false
   },
 
   "custom/nixos": {
