@@ -24,7 +24,7 @@ jobs:
           token: ${{ secrets.NIXOS_CONFIG_PAT }}
 
       - name: Update dotfiles input
-        run: make update-dotfiles
+        run: nix flake lock --update-input dotfiles
 
       - name: Set short SHA
         run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
