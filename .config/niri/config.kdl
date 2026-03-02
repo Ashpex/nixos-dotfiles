@@ -4,11 +4,6 @@
 // Load Noctalia Shell theme (auto-generated)
 include "noctalia.kdl"
 
-// Enable XWayland for X11 apps (Discord, etc.)
-xwayland {
-    enable
-}
-
 input {
     keyboard {
         xkb {
