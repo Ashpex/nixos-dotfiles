@@ -1,6 +1,9 @@
 // Niri configuration
 // See https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+// Load Noctalia Shell theme (auto-generated)
+include optional=true "noctalia.kdl"
+
 input {
     keyboard {
         xkb {
@@ -78,6 +81,9 @@ binds {
     // File manager
     Mod+E { spawn "pcmanfm"; }
 
+    // Overview
+    Mod+O { toggle-overview; }
+
     // Move focus
     Mod+Left  { focus-column-left; }
     Mod+Right { focus-column-right; }
@@ -85,8 +91,8 @@ binds {
     Mod+Down  { focus-window-down; }
     Mod+H     { focus-column-left; }
     Mod+L     { focus-column-right; }
-    Mod+K     { focus-window-up; }
-    Mod+J     { focus-window-down; }
+    Mod+K     { focus-workspace-up; }
+    Mod+J     { focus-workspace-down; }
 
     // Move windows
     Mod+Shift+Left  { move-column-left; }
@@ -139,9 +145,9 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
     // Screenshot (built-in)
-    Print       { screenshot; }
-    Shift+Print { screenshot-screen; }
-    Ctrl+Print  { screenshot-window; }
+    Mod+S       { screenshot; }
+    Mod+Shift+S { screenshot-screen; }
+    Mod+Ctrl+S  { screenshot-window; }
 
     // Volume (via Noctalia for OSD feedback)
     XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }

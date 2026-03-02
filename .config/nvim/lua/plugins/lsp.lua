@@ -41,14 +41,13 @@ return {
       capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
     end
 
-    local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
-    if not lspconfig_ok then
-      return
-    end
+    -- Use new vim.lsp.config API (nvim 0.11+)
+    vim.lsp.config('*', {
+      capabilities = capabilities,
+    })
 
     -- Go LSP
-    lspconfig.gopls.setup({
-      capabilities = capabilities,
+    vim.lsp.config.gopls = {
       settings = {
         gopls = {
           analyses = {
@@ -58,11 +57,10 @@ return {
           gofumpt = true,
         },
       },
-    })
+    }
 
     -- Rust LSP
-    lspconfig.rust_analyzer.setup({
-      capabilities = capabilities,
+    vim.lsp.config.rust_analyzer = {
       settings = {
         ["rust-analyzer"] = {
           cargo = {
@@ -73,11 +71,10 @@ return {
           },
         },
       },
-    })
+    }
 
     -- Nix LSP
-    lspconfig.nil_ls.setup({
-      capabilities = capabilities,
+    vim.lsp.config.nil_ls = {
       settings = {
         ["nil"] = {
           formatting = {
@@ -85,6 +82,11 @@ return {
           },
         },
       },
-    })
+    }
+
+    -- Enable language servers
+    vim.lsp.enable('gopls')
+    vim.lsp.enable('rust_analyzer')
+    vim.lsp.enable('nil_ls')
   end,
 }
