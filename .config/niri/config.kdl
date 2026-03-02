@@ -77,6 +77,7 @@ binds {
     Mod+N { spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
     Mod+Ctrl+L      { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
     Mod+Shift+Escape { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+    Mod+Shift+R { spawn "systemctl" "--user" "restart" "noctalia-shell"; }
 
     // File manager
     Mod+E { spawn "pcmanfm"; }
