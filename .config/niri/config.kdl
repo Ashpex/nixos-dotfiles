@@ -20,7 +20,7 @@ layout {
     gaps 10
 
     border {
-        width 1.5
+        width 1
         active-color "#71CEAD"
         inactive-color "#53685B"
     }
@@ -38,7 +38,7 @@ layout {
 
 // Rounded corners
 window-rule {
-    geometry-corner-radius 3
+    geometry-corner-radius 2
     clip-to-geometry true
 }
 
