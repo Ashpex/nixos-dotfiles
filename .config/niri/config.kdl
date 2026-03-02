@@ -25,14 +25,9 @@ layout {
     gaps 10
 
     border {
-        width 1
+        width 1.5
         active-color "#71CEAD"
         inactive-color "#53685B"
-    }
-
-    // Disable focus ring (color overlay on selected windows)
-    focus-ring {
-        off
     }
 
     shadow {
