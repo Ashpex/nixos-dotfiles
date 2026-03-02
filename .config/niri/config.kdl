@@ -2,7 +2,7 @@
 // See https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
 // Load Noctalia Shell theme (auto-generated)
-include optional=true "noctalia.kdl"
+include "noctalia.kdl"
 
 input {
     keyboard {
