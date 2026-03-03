@@ -1,19 +1,22 @@
--- Treesitter for syntax highlighting
-
+---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  config = function()
-    local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-    if not status_ok then
-      return
-    end
-
-    configs.setup({
-      ensure_installed = { "go", "rust", "nix", "lua", "vim", "vimdoc", "markdown" },
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
-    })
-  end,
+  opts = {
+    ensure_installed = {
+      "go",
+      "gomod",
+      "gosum",
+      "rust",
+      "nix",
+      "lua",
+      "vim",
+      "vimdoc",
+      "markdown",
+      "markdown_inline",
+      "toml",
+      "yaml",
+      "json",
+      "bash",
+    },
+  },
 }
