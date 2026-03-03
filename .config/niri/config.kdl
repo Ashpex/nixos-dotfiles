@@ -18,7 +18,6 @@ input {
 
 layout {
     gaps 10
-    prefer-no-csd true
 
     border {
         width 1
