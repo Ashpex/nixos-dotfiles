@@ -5,7 +5,7 @@ return {
   ---@type CatppuccinOptions
   opts = {
     flavour = "mocha",
-    transparent_background = true,
+    transparent_background = false,
     integrations = {
       blink_cmp = true,
       gitsigns = true,
