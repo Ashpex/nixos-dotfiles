@@ -17,6 +17,7 @@ button {
     background-size: 25%;
     border-radius: 8px;
     margin: 5px;
+    font-size: 48px;
 }
 
 button:focus, button:active, button:hover {
@@ -27,21 +28,36 @@ button:focus, button:active, button:hover {
 }
 
 #lock {
-    background-image: image(url("icons/lock.png"));
+    margin: 10px;
+}
+#lock:before {
+    content: "󰌾";
 }
 
 #logout {
-    background-image: image(url("icons/logout.png"));
+    margin: 10px;
+}
+#logout:before {
+    content: "󰍃";
 }
 
 #suspend {
-    background-image: image(url("icons/suspend.png"));
+    margin: 10px;
+}
+#suspend:before {
+    content: "󰤄";
 }
 
 #reboot {
-    background-image: image(url("icons/reboot.png"));
+    margin: 10px;
+}
+#reboot:before {
+    content: "󰜉";
 }
 
 #shutdown {
-    background-image: image(url("icons/shutdown.png"));
+    margin: 10px;
+}
+#shutdown:before {
+    content: "󰐥";
 }
