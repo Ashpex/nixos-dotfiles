@@ -1,9 +1,7 @@
 -- Mason disabled: LSP servers and tools installed via Nix system packages
 ---@type LazySpec
 return {
-  { "williamboman/mason.nvim", opts = { PATH = "skip" } },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    opts = { ensure_installed = {} },
-  },
+  { "williamboman/mason.nvim", enabled = false },
+  { "williamboman/mason-lspconfig.nvim", enabled = false },
+  { "WhoIsSethDaniel/mason-tool-installer.nvim", enabled = false },
 }
