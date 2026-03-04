@@ -4,6 +4,9 @@
 // Load Noctalia Shell theme (auto-generated)
 include "noctalia.kdl"
 
+// Disable client-side decorations (apps will use server-side decorations)
+prefer-no-csd
+
 input {
     keyboard {
         xkb {
@@ -36,9 +39,9 @@ layout {
     default-column-width { proportion 0.5; }
 }
 
-// Rounded corners
+// No rounded corners
 window-rule {
-    geometry-corner-radius 2
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
