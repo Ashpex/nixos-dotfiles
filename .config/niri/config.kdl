@@ -147,8 +147,8 @@ binds {
     Mod+Shift+S { screenshot-screen; }
     Mod+Ctrl+S  { screenshot-window; }
 
-    // Screen recording (wf-recorder)
-    Mod+R { spawn "sh" "-c" "wf-recorder -f ~/Videos/recording-$(date +%Y%m%d-%H%M%S).mp4"; }
+    // Screen recording (wf-recorder with proper color handling)
+    Mod+R { spawn "sh" "-c" "wf-recorder -c libx264rgb -p preset=ultrafast -p crf=20 -f ~/Videos/recording-$(date +%Y%m%d-%H%M%S).mp4"; }
     Mod+Ctrl+R { spawn "killall" "-INT" "wf-recorder"; }
 
     // Volume (via Noctalia for OSD feedback)
