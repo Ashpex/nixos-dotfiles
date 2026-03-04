@@ -148,7 +148,7 @@ binds {
     Mod+Ctrl+S  { screenshot-window; }
 
     // Screen recording (wf-recorder with hardware acceleration and proper color handling)
-    Mod+R { spawn "sh" "-c" "wf-recorder -c h264_vaapi -d /dev/dri/renderD128 -p color_range=pc -p qp=20 -f ~/Videos/recording-$(date +%Y%m%d-%H%M%S).mp4"; }
+    Mod+R { spawn "sh" "-c" "wf-recorder -c h264_vaapi -d /dev/dri/renderD128 -p color_range=pc -p qp=20 -f ~/Videos/recording-$(date +%Y%m%d-%H%M%S).mkv"; }
     Mod+Ctrl+R { spawn "killall" "-INT" "wf-recorder"; }
 
     // Volume (via Noctalia for OSD feedback)
